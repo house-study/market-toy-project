@@ -2,7 +2,7 @@ import ProductCard from '@/components/product/ProductCard';
 
 const Home = () => {
   return (
-    <div className="mx-auto grid max-w-fit grid-cols-5 items-center justify-center gap-3 p-1">
+    <div className="mx-auto grid max-w-fit grid-cols-2 items-center justify-center gap-3 p-1 md:grid-cols-3 lg:grid-cols-5">
       <ProductCard />
       <ProductCard />
       <ProductCard />
