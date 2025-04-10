@@ -3,7 +3,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-const ProductCard = () => {
+interface ProductCardProps {
+  image: string; // 상품 이미지 URL
+  name: string; // 상품 이름
+  description: string; // 상품 설명
+  price: number; // 상품 가격
+  link: string; // 상품 링크
+}
+
+const ProductCard = ({
+  image,
+  name,
+  description,
+  price,
+  link,
+}: ProductCardProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -24,7 +38,7 @@ const ProductCard = () => {
           />
         )}
         <Image
-          src="/image/product.png"
+          src={image}
           alt="상품 예시 이미지"
           width={200}
           height={200}
@@ -34,17 +48,17 @@ const ProductCard = () => {
       </div>
       <section className="mt-1 text-sm">
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold"> 슈퍼포우 </h3>
+          <h3 className="font-semibold"> {name} </h3>
           <Link
-            href="https://m.superpaw.co.kr/"
+            href={link}
             className="font-bold text-gray-500 hover:text-gray-700"
           >
             공식 {'>'}
           </Link>
         </div>
-        <h3 className="font-semibold">슈퍼포우 오래츄 </h3>
+        <h3 className="font-semibold">{description} </h3>
         <div className="flex items-center">
-          <span className="font-bold">₩12,800</span>
+          <span className="font-bold">₩ {price}</span>
         </div>
       </section>
     </div>
