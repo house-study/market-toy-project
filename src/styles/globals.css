@@ -9,3 +9,7 @@
     background-position: 100% 50%;
   }
 }
+
+@theme {
+  --font-sans: 'Pretendard';
+}
