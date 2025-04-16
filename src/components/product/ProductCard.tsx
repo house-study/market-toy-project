@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import { formatPrice } from '@/utils/formatPrice';
+import { formatPrice } from '@/utils/format';
 
 interface ProductCardProps {
   image: string; // 상품 이미지 URL
