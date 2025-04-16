@@ -60,11 +60,13 @@ const ProductCard = ({
             공식 {'>'}
           </Link>
         </div>
-        <h2 className="line-clamp-2 max-w-[180px] overflow-hidden font-semibold text-ellipsis">
+        <h2 className="line-clamp-2 max-w-[180px] overflow-hidden font-semibold text-ellipsis text-gray-700">
           {description}
         </h2>
         <div className="flex items-center">
-          <span className="font-bold">{formatPrice(price)}원</span>
+          <span className="font-semibold text-gray-700">
+            {formatPrice(price)}원
+          </span>
         </div>
       </section>
     </div>
