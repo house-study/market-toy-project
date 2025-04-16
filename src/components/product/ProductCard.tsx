@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
+import { formatPrice } from '@/utils/formatPrice';
+
 interface ProductCardProps {
   image: string; // 상품 이미지 URL
   name: string; // 상품 이름
@@ -58,9 +60,7 @@ const ProductCard = ({
         </div>
         <h3 className="font-semibold">{description} </h3>
         <div className="flex items-center">
-          <span className="font-bold">
-            ₩ {isNaN(price) ? '-' : price.toLocaleString('ko-KR')}
-          </span>
+          <span className="font-bold">{formatPrice(price)}원</span>
         </div>
       </section>
     </div>
