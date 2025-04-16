@@ -26,7 +26,7 @@ const ProductCard = ({
     setIsLoading(false);
   };
   return (
-    <div>
+    <div className="flex h-[300px] flex-col">
       <div className="group relative h-[200px] w-[200px] overflow-hidden rounded-lg shadow-md">
         {/* 로딩 UI */}
         {isLoading && (
@@ -48,9 +48,11 @@ const ProductCard = ({
           className="h-full w-full object-fill transition-transform duration-300 ease-in-out group-hover:scale-110"
         />
       </div>
-      <section className="mt-1 text-sm">
+      <section className="mt-1 w-[200px] flex-1 text-sm">
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold"> {name} </h3>
+          <h1 className="line-clamp-1 max-w-[140px] overflow-hidden font-semibold text-ellipsis">
+            {name}
+          </h1>
           <Link
             href={link}
             className="font-bold text-gray-500 hover:text-gray-700"
@@ -58,7 +60,9 @@ const ProductCard = ({
             공식 {'>'}
           </Link>
         </div>
-        <h3 className="font-semibold">{description} </h3>
+        <h2 className="line-clamp-2 max-w-[180px] overflow-hidden font-semibold text-ellipsis">
+          {description}
+        </h2>
         <div className="flex items-center">
           <span className="font-bold">{formatPrice(price)}원</span>
         </div>
