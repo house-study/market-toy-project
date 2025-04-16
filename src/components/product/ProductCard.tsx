@@ -58,7 +58,9 @@ const ProductCard = ({
         </div>
         <h3 className="font-semibold">{description} </h3>
         <div className="flex items-center">
-          <span className="font-bold">₩ {price}</span>
+          <span className="font-bold">
+            ₩ {isNaN(price) ? '-' : price.toLocaleString('ko-KR')}
+          </span>
         </div>
       </section>
     </div>
