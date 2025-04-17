@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { formatPrice } from '@/utils/format';
 
@@ -20,7 +20,14 @@ const ProductCard = ({
   price,
   link,
 }: ProductCardProps) => {
+  const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null; // 서버에서 아무것도 렌더링하지 않음
 
   const handleImageLoad = () => {
     setIsLoading(false);
