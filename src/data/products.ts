@@ -1,7 +1,7 @@
 export const mockProducts: ProductCard[] = [
   {
     id: 1,
-    image: '/image/product.png',
+    image: '/image/product1-1.png',
     name: '슈퍼포우',
     description: '고급 강아지 껌',
     price: 12800,
