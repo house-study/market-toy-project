@@ -23,7 +23,20 @@ const ProductDetailInfo = ({ productId }: { productId?: string }) => {
         <p className="text-lg font-semibold">{formatPrice(product.price)}</p>
       </article>
       <section>상품 옵션 선택 섹션</section>
-      <section>구매, 장바구니 버튼 섹션</section>
+      <section className="mt-6 flex gap-3">
+        <button
+          className="flex-1 rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors duration-150 hover:bg-gray-100"
+          type="button"
+        >
+          장바구니
+        </button>
+        <button
+          className="flex-1 rounded bg-blue-400 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-blue-700"
+          type="button"
+        >
+          구매하기
+        </button>
+      </section>
     </div>
   );
 };
