@@ -7,6 +7,11 @@ export const mockProducts: ProductCard[] = [
     price: 12800,
     link: 'https://brand.naver.com/superpaw',
     label: '신상품',
+    origin: '대한민국',
+    options: [
+      { name: '사이즈', values: ['소', '중', '대'] },
+      { name: '맛', values: ['치킨', '연어', '오리'] },
+    ],
   },
   {
     id: 2,
@@ -16,6 +21,8 @@ export const mockProducts: ProductCard[] = [
     price: 24900,
     link: 'https://brand.naver.com/superpaw',
     label: '할인 상품',
+    origin: '대한민국',
+    options: [{ name: '용량', values: ['100g', '200g', '500g'] }],
   },
   {
     id: 3,
@@ -25,6 +32,11 @@ export const mockProducts: ProductCard[] = [
     price: 15800,
     link: 'https://smartstore.naver.com/gaonheal',
     label: '직진 배송',
+    origin: '대한민국',
+    options: [
+      { name: '사이즈', values: ['S', 'M', 'L'] },
+      { name: '색상', values: ['화이트', '그레이', '블루'] },
+    ],
   },
   {
     id: 4,
@@ -34,6 +46,11 @@ export const mockProducts: ProductCard[] = [
     price: 32000,
     link: 'https://smartstore.naver.com/songwolgift',
     label: '직진 배송',
+    origin: '대한민국',
+    options: [
+      { name: '색상', values: ['화이트', '베이지', '네이비'] },
+      { name: '수량', values: ['1장', '3장', '5장'] },
+    ],
   },
   {
     id: 5,
@@ -43,5 +60,10 @@ export const mockProducts: ProductCard[] = [
     price: 45000,
     link: 'https://brand.naver.com/ballop',
     label: '신상품',
+    origin: '대한민국',
+    options: [
+      { name: '사이즈', values: ['230', '240', '250', '260', '270'] },
+      { name: '색상', values: ['블랙', '핑크', '민트'] },
+    ],
   },
 ];

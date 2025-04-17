@@ -13,8 +13,6 @@ const ProductDetail = () => {
         <ProductImage productId={id} />
         <ProductDetailInfo productId={id} />
       </section>
-      <section>상세 헤더</section>
-      <section>상세 페이지</section>
     </div>
   );
 };
