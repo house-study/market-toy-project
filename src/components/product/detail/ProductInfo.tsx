@@ -7,7 +7,7 @@ interface ProductInfoProps {
 }
 
 const ProductInfo = ({ product }: ProductInfoProps) => (
-  <section className="lg:w-min-[300px] w-full lg:w-[300px]">
+  <section className="w-full lg:w-[300px] lg:min-w-[300px]">
     <div className="mb-1">
       {product?.name && product?.name.length < 10 ? (
         <>
