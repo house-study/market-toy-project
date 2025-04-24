@@ -8,7 +8,7 @@ const ProductImage = ({ productId }: { productId?: string }) => {
   return (
     <div className="flex h-[300px] flex-col">
       <Image
-        src={`/image/product${productId}.png`}
+        src={`/image/product_${productId}.png`}
         alt="상품 상세 이미지"
         width={300}
         height={300}
