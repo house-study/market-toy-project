@@ -9,7 +9,6 @@ declare interface ProductCard {
   description: string; // 상품 설명
   price: number; // 상품 가격
   link: string; // 상품 링크
-  label?: string; // 상품 라벨 (예: 신상품, 할인상품 등)
   origin?: string; // 상품 원산지 (예: 대한민국, 미국 등)
   options?: ProductOption[];
 }

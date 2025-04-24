@@ -1,13 +1,7 @@
-import { mockProducts } from '@/data/products';
-
 import ProductInfo from './ProductInfo';
 import ProductOptions from './ProductOptions';
 
-const ProductDetailInfo = ({ productId }: { productId?: string }) => {
-  const product = mockProducts.find(
-    product => product.id === Number(productId),
-  );
-
+const ProductDetailInfo = ({ product }: { product: ProductCard }) => {
   if (!product) {
     return <div>상품을 찾을 수 없습니다.</div>;
   }

@@ -1,14 +1,14 @@
 import Image from 'next/image';
 
-const ProductImage = ({ productId }: { productId?: string }) => {
-  if (!productId) {
+const ProductImage = ({ productImage }: { productImage?: string }) => {
+  if (!productImage) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="flex h-[300px] flex-col">
       <Image
-        src={`/image/product_${productId}.png`}
+        src={productImage}
         alt="상품 상세 이미지"
         width={300}
         height={300}
