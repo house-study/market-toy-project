@@ -6,7 +6,6 @@ export const mockProducts: ProductCard[] = [
     description: '고급 강아지 껌',
     price: 12800,
     link: 'https://brand.naver.com/superpaw',
-    label: '신상품',
     origin: '대한민국',
     options: [
       { name: '사이즈', values: ['소', '중', '대'] },
@@ -20,7 +19,6 @@ export const mockProducts: ProductCard[] = [
     description: '고급 강아지 스낵',
     price: 24900,
     link: 'https://brand.naver.com/superpaw',
-    label: '할인 상품',
     origin: '대한민국',
     options: [{ name: '용량', values: ['100g', '200g', '500g'] }],
   },
@@ -31,7 +29,6 @@ export const mockProducts: ProductCard[] = [
     description: '일자목 거북목 옆으로 자는 베개',
     price: 15800,
     link: 'https://smartstore.naver.com/gaonheal',
-    label: '직진 배송',
     origin: '대한민국',
     options: [
       { name: '사이즈', values: ['S', 'M', 'L'] },
@@ -45,7 +42,6 @@ export const mockProducts: ProductCard[] = [
     description: '호텔 수건 메리츠',
     price: 32000,
     link: 'https://smartstore.naver.com/songwolgift',
-    label: '직진 배송',
     origin: '대한민국',
     options: [
       { name: '색상', values: ['화이트', '베이지', '네이비'] },
@@ -59,7 +55,6 @@ export const mockProducts: ProductCard[] = [
     description: '발 아치 사무실 실내화',
     price: 45000,
     link: 'https://brand.naver.com/ballop',
-    label: '신상품',
     origin: '대한민국',
     options: [
       { name: '사이즈', values: ['230', '240', '250', '260', '270'] },
