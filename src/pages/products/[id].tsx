@@ -1,34 +1,14 @@
-'use client';
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { GetServerSidePropsContext } from 'next';
 
+import { fetchProducts } from '@/api/fetchProduct';
 import ProductDetailInfo from '@/components/product/detail/ProductDetail';
 import ProductImage from '@/components/product/detail/ProductImage';
 
-const ProductDetail = () => {
-  const params = useParams<{ id?: string }>();
-  const { id } = params ?? {};
+interface ProductDetailPageProps {
+  product: ProductCard | null;
+}
 
-  const [product, setProduct] = useState<ProductCard | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!id) return;
-
-    fetch('http://localhost:3001/products')
-      .then(res => res.json())
-      .then((data: ProductCard[]) => {
-        const found = data.find(p => p.id === Number(id));
-        setProduct(found ?? null);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching products:', err);
-        setLoading(false);
-      });
-  }, [id]);
-
-  if (loading) return <p>로딩 중...</p>;
+const ProductDetail = ({ product }: ProductDetailPageProps) => {
   if (!product) return <p>상품을 찾을 수 없습니다.</p>;
 
   return (
@@ -39,6 +19,26 @@ const ProductDetail = () => {
       </section>
     </div>
   );
+};
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  const { id } = context.params!;
+
+  try {
+    const data: ProductCard[] = await fetchProducts();
+    const product = data.find(p => Number(p.id) === Number(id)) ?? null;
+
+    return {
+      props: { product },
+    };
+  } catch (error) {
+    console.error('상품 정보 가져오기 실패:', error);
+    return {
+      props: { product: null },
+    };
+  }
 };
 
 export default ProductDetail;
