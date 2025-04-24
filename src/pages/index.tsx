@@ -1,27 +1,11 @@
-'use client';
-import { useEffect, useState } from 'react';
-
+import { fetchProducts } from '@/api/fetchProduct';
 import ProductCard from '@/components/product/list/ProductCard';
 
-const Home = () => {
-  const [products, setProducts] = useState<ProductCard[]>([]);
-  const [loading, setLoading] = useState(true);
+interface HomeProps {
+  products: ProductCard[];
+}
 
-  useEffect(() => {
-    fetch('http://localhost:3001/products')
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Failed to fetch products:', error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p>로딩 중...</p>;
-
+const Home = ({ products }: HomeProps) => {
   return (
     <div className="mx-auto grid max-w-fit grid-cols-2 items-center justify-center gap-3 p-1 md:grid-cols-3 lg:grid-cols-5">
       {products.map(product => (
@@ -37,6 +21,20 @@ const Home = () => {
       ))}
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  try {
+    const products = await fetchProducts();
+    return {
+      props: { products },
+    };
+  } catch (error) {
+    console.error('상품 정보 불러오기에 실패하였습니다:', error);
+    return {
+      props: { products: [] },
+    };
+  }
 };
 
 export default Home;
