@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -6,12 +5,13 @@ import React from 'react';
 import { formatPrice } from '@/utils/format';
 
 interface ProductCardProps {
-  id: string; // 상품 ID
-  image: string; // 상품 이미지 URL
-  name: string; // 상품 이름
-  description: string; // 상품 설명
-  price: number; // 상품 가격
-  link: string; // 상품 링크
+  id: string;
+  image: string;
+  name: string;
+  description: string;
+  price: number;
+  link: string;
+  blurDataURL?: string;
 }
 
 const ProductCard = ({
@@ -21,9 +21,10 @@ const ProductCard = ({
   description,
   price,
   link,
+  blurDataURL,
 }: ProductCardProps) => {
   return (
-    <Link href={`/products/${id}`} key={id}>
+    <Link href={`/products/${id}`}>
       <div className="flex h-[300px] flex-col">
         <div className="group relative h-[200px] w-[200px] overflow-hidden rounded-lg shadow-md">
           <Image
@@ -32,7 +33,7 @@ const ProductCard = ({
             width={200}
             height={200}
             placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAA..."
+            blurDataURL={blurDataURL}
             className="h-full w-full object-fill transition-transform duration-300 ease-in-out group-hover:scale-110"
           />
         </div>
@@ -41,12 +42,15 @@ const ProductCard = ({
             <h1 className="line-clamp-1 max-w-[140px] overflow-hidden font-semibold text-ellipsis">
               {name}
             </h1>
-            <Link
+            <a
               href={link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-bold text-gray-500 hover:text-gray-700"
+              onClick={e => e.stopPropagation()} // 클릭 전파 방지
             >
               공식 {'>'}
-            </Link>
+            </a>
           </div>
           <h2 className="line-clamp-2 max-w-[180px] overflow-hidden font-semibold text-ellipsis text-gray-700">
             {description}

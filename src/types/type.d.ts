@@ -6,4 +6,5 @@ declare interface ProductCard {
   price: number; // 상품 가격
   link: string; // 상품 링크
   origin?: string; // 상품 원산지 (예: 대한민국, 미국 등)
+  blurDataURL?: string; // 상품 이미지의 블러 데이터 URL (optional)
 }
