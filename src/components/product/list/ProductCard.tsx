@@ -29,7 +29,7 @@ const ProductCard = ({
         <div className="group relative h-[200px] w-[200px] overflow-hidden rounded-lg shadow-md">
           <Image
             src={image}
-            alt="상품 예시 이미지"
+            alt={`${name} 이미지`}
             width={200}
             height={200}
             placeholder="blur"
