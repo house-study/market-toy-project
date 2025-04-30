@@ -10,6 +10,13 @@ interface HomeProps {
 }
 
 const Home = ({ products }: HomeProps) => {
+  if (!products || products.length === 0) {
+    return (
+      <div className="py-20 text-center text-lg text-gray-500">
+        상품이 없습니다.
+      </div>
+    );
+  }
   return (
     <div className="mx-auto grid max-w-fit grid-cols-2 items-center justify-center gap-3 p-1 md:grid-cols-3 lg:grid-cols-5">
       {products.map(product => (
