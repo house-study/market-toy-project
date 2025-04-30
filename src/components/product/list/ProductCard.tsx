@@ -42,15 +42,15 @@ const ProductCard = ({
             <h1 className="line-clamp-1 max-w-[140px] overflow-hidden font-semibold text-ellipsis">
               {name}
             </h1>
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-gray-500 hover:text-gray-700"
-              onClick={e => e.stopPropagation()} // 클릭 전파 방지
+            <span
+              onClick={e => {
+                e.preventDefault();
+                window.open(link, '_blank'); // 새 창에서 링크 열기
+              }}
+              className="cursor-pointer font-bold text-gray-500 hover:text-gray-700"
             >
               공식 {'>'}
-            </a>
+            </span>
           </div>
           <h2 className="line-clamp-2 max-w-[180px] overflow-hidden font-semibold text-ellipsis text-gray-700">
             {description}
