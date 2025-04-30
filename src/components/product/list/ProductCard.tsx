@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { formatPrice } from '@/utils/format';
 
@@ -22,39 +22,17 @@ const ProductCard = ({
   price,
   link,
 }: ProductCardProps) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null; // 서버에서 아무것도 렌더링하지 않음
-
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
   return (
     <Link href={`/products/${id}`} key={id}>
       <div className="flex h-[300px] flex-col">
         <div className="group relative h-[200px] w-[200px] overflow-hidden rounded-lg shadow-md">
-          {/* 로딩 UI */}
-          {isLoading && (
-            <div
-              className="absolute inset-0 rounded-lg"
-              style={{
-                background: 'linear-gradient(90deg, #f3f4f6, #e5e7eb, #f3f4f6)',
-                backgroundSize: '200% 200%',
-                animation: 'gradient 3s ease infinite',
-              }}
-            />
-          )}
           <Image
             src={image}
             alt="상품 예시 이미지"
             width={200}
             height={200}
-            onLoad={handleImageLoad} // 이미지가 로드되었을 때 호출
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAA..."
             className="h-full w-full object-fill transition-transform duration-300 ease-in-out group-hover:scale-110"
           />
         </div>
