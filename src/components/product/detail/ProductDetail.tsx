@@ -9,7 +9,7 @@ const ProductDetailInfo = ({ product }: { product: ProductCard }) => {
   return (
     <div>
       <ProductInfo product={product} />
-      <ProductOptions options={product?.options} />
+      <ProductOptions />
       <section className="mt-6 flex gap-3">
         <button
           className="flex-1 rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-colors duration-150 hover:bg-gray-100"
