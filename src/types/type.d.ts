@@ -3,7 +3,7 @@ declare interface ProductOption {
   values: string[]; // 선택 가능한 값들
 }
 declare interface ProductCard {
-  id: number; // 상품 ID
+  id: string; // 상품 ID
   image: string; // 상품 이미지 URL
   name: string; // 상품 이름
   description: string; // 상품 설명
