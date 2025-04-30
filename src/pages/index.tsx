@@ -3,7 +3,7 @@ import path from 'node:path';
 import { getPlaiceholder } from 'plaiceholder';
 
 import { fetchProducts } from '@/api/fetchProduct';
-import ProductCard from '@/components/product/list/ProductCard';
+import ProductListCard from '@/components/product/list/ProductListCard';
 
 interface HomeProps {
   products: ProductCard[];
@@ -20,7 +20,7 @@ const Home = ({ products }: HomeProps) => {
   return (
     <div className="mx-auto grid max-w-fit grid-cols-2 items-center justify-center gap-3 p-1 md:grid-cols-3 lg:grid-cols-5">
       {products.map(product => (
-        <ProductCard
+        <ProductListCard
           key={product.id}
           id={product.id}
           image={product.image}

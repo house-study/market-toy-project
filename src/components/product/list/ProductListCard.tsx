@@ -4,7 +4,7 @@ import React from 'react';
 
 import { formatPrice } from '@/utils/format';
 
-interface ProductCardProps {
+interface ProductListCardProps {
   id: string;
   image: string;
   name: string;
@@ -14,7 +14,7 @@ interface ProductCardProps {
   blurDataURL?: string;
 }
 
-const ProductCard = ({
+const ProductListCard = ({
   id,
   image,
   name,
@@ -22,7 +22,7 @@ const ProductCard = ({
   price,
   link,
   blurDataURL,
-}: ProductCardProps) => {
+}: ProductListCardProps) => {
   return (
     <Link href={`/products/${id}`}>
       <div className="flex h-[300px] flex-col">
@@ -66,4 +66,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default ProductListCard;
