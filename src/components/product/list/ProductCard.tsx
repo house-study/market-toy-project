@@ -37,7 +37,7 @@ const ProductCard = ({
             className="h-full w-full object-fill transition-transform duration-300 ease-in-out group-hover:scale-110"
           />
         </div>
-        <section className="mt-1 w-[200px] flex-1 text-sm">
+        <article className="mt-1 w-[200px] flex-1 text-sm">
           <div className="flex items-center gap-2">
             <h1 className="line-clamp-1 max-w-[140px] overflow-hidden font-semibold text-ellipsis">
               {name}
@@ -60,7 +60,7 @@ const ProductCard = ({
               {formatPrice(price)}원
             </span>
           </div>
-        </section>
+        </article>
       </div>
     </Link>
   );
