@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "concurrently \"next dev --turbopack\" \"json-server --watch db.json --port 3001\"",
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit && next lint",
     "lint:fix": "tsc --noEmit && next lint --fix",
+    "serve:json": "json-server --watch db.json --port 3001",
     "prepare": "husky"
   },
   "prettier": {
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "next": "15.2.4",
+    "plaiceholder": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -38,6 +40,7 @@
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
+    "concurrently": "^9.1.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "15.2.4",
     "eslint-config-prettier": "^10.1.1",
@@ -50,6 +53,7 @@
     "eslint-plugin-tailwindcss": "4.0.0-alpha.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
+    "json-server": "1.0.0-beta.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
