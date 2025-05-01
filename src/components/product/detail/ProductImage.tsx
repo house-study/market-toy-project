@@ -9,7 +9,7 @@ const ProductImage = ({ productImage }: { productImage?: string }) => {
     <div className="flex h-[300px] flex-col">
       <Image
         src={productImage}
-        alt="상품 상세 이미지"
+        alt="상품 상세"
         width={300}
         height={300}
         className="h-full w-full object-fill"
