@@ -5,7 +5,7 @@ import ProductDetailInfo from '@/components/product/detail/ProductDetail';
 import ProductImage from '@/components/product/detail/ProductImage';
 
 interface ProductDetailPageProps {
-  product: ProductCard | null;
+  product: ProductCard | undefined;
 }
 
 const ProductDetail = ({ product }: ProductDetailPageProps) => {
@@ -28,7 +28,7 @@ export const getServerSideProps = async (
 
   try {
     const data: ProductCard[] = await fetchProducts();
-    const product = data.find(p => String(p.id) === String(id)) ?? null;
+    const product = data.find(p => String(p.id) === String(id)) ?? undefined;
 
     return {
       props: { product },
@@ -36,7 +36,7 @@ export const getServerSideProps = async (
   } catch (error) {
     console.error('상품 정보 가져오기 실패:', error);
     return {
-      props: { product: null },
+      props: { product: undefined },
     };
   }
 };
