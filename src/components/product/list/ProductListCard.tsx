@@ -5,7 +5,7 @@ import React from 'react';
 import { formatPrice } from '@/utils/format';
 
 interface ProductListCardProps {
-  id: string;
+  id: number;
   image: string;
   name: string;
   description: string;

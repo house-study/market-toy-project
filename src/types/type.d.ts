@@ -1,5 +1,5 @@
 declare interface ProductCard {
-  id: string; // 상품 ID
+  id: number; // 상품 ID
   image: string; // 상품 이미지 URL
   name: string; // 상품 이름
   description: string; // 상품 설명
@@ -10,6 +10,6 @@ declare interface ProductCard {
 }
 
 declare interface CartItem {
-  id: number | string;
+  id: number;
   quantity: number;
 }

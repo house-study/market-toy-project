@@ -8,9 +8,7 @@ export const fetchProducts = async (): Promise<ProductCard[]> => {
   return res.json();
 };
 
-export const fetchProductById = async (
-  id: number | string,
-): Promise<ProductCard> => {
+export const fetchProductById = async (id: number): Promise<ProductCard> => {
   const res = await fetch(`${API_BASE_URL}/products/${id}`);
 
   if (!res.ok) {

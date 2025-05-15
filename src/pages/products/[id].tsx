@@ -28,7 +28,7 @@ export const getServerSideProps = async (
 
   try {
     const data: ProductCard[] = await fetchProducts();
-    const product = data.find(p => String(p.id) === String(id)) ?? undefined;
+    const product = data.find(p => Number(p.id) === Number(id)) ?? undefined;
 
     return {
       props: { product },
