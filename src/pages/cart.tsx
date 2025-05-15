@@ -1,14 +1,33 @@
 import { useEffect, useState } from 'react';
 
-const Cart = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+import { fetchProductById } from '@/api/fetchProduct';
 
-  useEffect(() => {
+interface CartProduct {
+  id: number;
+  quantity: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+const Cart = () => {
+  const [cartItems, setCartItems] = useState<CartProduct[]>([]);
+
+  useEffect(async () => {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       try {
         const parsedItems: CartItem[] = JSON.parse(storedCart);
-        setCartItems(parsedItems);
+        const productFetches = await Promise.all(
+          parsedItems.map(async item => {
+            const product = await fetchProductById(item.id);
+            return {
+              ...product,
+              quantity: item.quantity,
+            };
+          }),
+        );
+        setCartItems(productFetches);
       } catch (e) {
         console.error('장바구니 데이터 불러오기 실패:', e);
       }
@@ -26,10 +45,20 @@ const Cart = () => {
           {cartItems.map(item => (
             <li
               key={item.id}
-              className="w-lg rounded-lg bg-gray-100 px-10 py-4"
+              className="flex gap-4 rounded-lg bg-gray-100 px-8 py-4"
             >
-              <p>상품 ID: {item.id}</p>
-              <p>수량: {item.quantity}</p>
+              <img
+                src={item.image}
+                alt={item.name}
+                className="h-20 w-20 rounded object-cover"
+              />
+              <div className="flex flex-col justify-between">
+                <p className="font-semibold">{item.name}</p>
+                <p className="text-sm text-gray-600">수량: {item.quantity}</p>
+                <p className="text-sm text-gray-800">
+                  가격: {(item.price * item.quantity).toLocaleString()}원
+                </p>
+              </div>
             </li>
           ))}
         </ul>
