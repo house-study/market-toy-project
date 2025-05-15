@@ -16,15 +16,18 @@ const Cart = () => {
   }, []);
 
   return (
-    <div>
-      <h1>장바구니</h1>
+    <div className="flex flex-col items-center">
+      <h1 className="my-20 text-xl font-bold">장바구니</h1>
 
       {cartItems.length === 0 ? (
         <p>장바구니가 비어 있습니다.</p>
       ) : (
-        <ul>
+        <ul className="flex flex-col gap-4">
           {cartItems.map(item => (
-            <li key={item.id}>
+            <li
+              key={item.id}
+              className="w-lg rounded-lg bg-gray-100 px-10 py-4"
+            >
               <p>상품 ID: {item.id}</p>
               <p>수량: {item.quantity}</p>
             </li>
