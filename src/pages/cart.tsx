@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { fetchProductById } from '@/api/fetchProduct';
+import { formatPrice } from '@/utils/format';
 
 interface CartProduct {
   id: number;
@@ -13,12 +14,15 @@ interface CartProduct {
 const Cart = () => {
   const [cartItems, setCartItems] = useState<CartProduct[]>([]);
 
-  useEffect(async () => {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      const storedCart = localStorage.getItem('cart');
+      if (!storedCart) return;
+
       try {
         const parsedItems: CartItem[] = JSON.parse(storedCart);
-        const productFetches = await Promise.all(
+
+        const fetchedProducts = await Promise.all(
           parsedItems.map(async item => {
             const product = await fetchProductById(item.id);
             return {
@@ -27,11 +31,12 @@ const Cart = () => {
             };
           }),
         );
-        setCartItems(productFetches);
+        setCartItems(fetchedProducts);
       } catch (e) {
         console.error('장바구니 데이터 불러오기 실패:', e);
       }
-    }
+    };
+    fetchCartItems();
   }, []);
 
   return (
@@ -54,9 +59,9 @@ const Cart = () => {
               />
               <div className="flex flex-col justify-between">
                 <p className="font-semibold">{item.name}</p>
-                <p className="text-sm text-gray-600">수량: {item.quantity}</p>
+                <p className="text-sm text-gray-600">개수: {item.quantity}</p>
                 <p className="text-sm text-gray-800">
-                  가격: {(item.price * item.quantity).toLocaleString()}원
+                  가격: {formatPrice(item.price * item.quantity)}원
                 </p>
               </div>
             </li>
