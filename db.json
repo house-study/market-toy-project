@@ -1,0 +1,66 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "/image/product_1.png",
+      "name": "슈퍼포우",
+      "description": "고급 강아지 껌",
+      "price": 12800,
+      "link": "https://brand.naver.com/superpaw",
+      "origin": "대한민국",
+      "options": [
+        { "name": "사이즈", "values": ["소", "중", "대"] },
+        { "name": "맛", "values": ["치킨", "연어", "오리"] }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "/image/product_2.png",
+      "name": "바나나 츄",
+      "description": "고급 강아지 스낵",
+      "price": 24900,
+      "link": "https://brand.naver.com/superpaw",
+      "origin": "대한민국",
+      "options": [{ "name": "용량", "values": ["100g", "200g", "500g"] }]
+    },
+    {
+      "id": 3,
+      "image": "/image/product_3.png",
+      "name": "스마트 빨아쓰는 경추베개",
+      "description": "일자목 거북목 옆으로 자는 베개",
+      "price": 15800,
+      "link": "https://smartstore.naver.com/gaonheal",
+      "origin": "대한민국",
+      "options": [
+        { "name": "사이즈", "values": ["S", "M", "L"] },
+        { "name": "색상", "values": ["화이트", "그레이", "블루"] }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "/image/product_4.png",
+      "name": "송월타올 수건",
+      "description": "호텔 수건 메리츠",
+      "price": 32000,
+      "link": "https://smartstore.naver.com/songwolgift",
+      "origin": "대한민국",
+      "options": [
+        { "name": "색상", "values": ["화이트", "베이지", "네이비"] },
+        { "name": "수량", "values": ["1장", "3장", "5장"] }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "/image/product_5.png",
+      "name": "밸롭 마무링 플랫 지압슬리퍼",
+      "description": "발 아치 사무실 실내화",
+      "price": 45000,
+      "link": "https://brand.naver.com/ballop",
+      "origin": "대한민국",
+      "options": [
+        { "name": "사이즈", "values": ["230", "240", "250", "260", "270"] },
+        { "name": "색상", "values": ["블랙", "핑크", "민트"] }
+      ]
+    }
+  ]
+}
