@@ -18,14 +18,19 @@ const Cart = () => {
   return (
     <div>
       <h1>장바구니</h1>
-      <ul className="space-y-2">
-        {cartItems.map(item => (
-          <li key={item.id}>
-            <p>상품 ID: {item.id}</p>
-            <p>수량: {item.quantity}</p>
-          </li>
-        ))}
-      </ul>
+
+      {cartItems.length === 0 ? (
+        <p>장바구니가 비어 있습니다.</p>
+      ) : (
+        <ul>
+          {cartItems.map(item => (
+            <li key={item.id}>
+              <p>상품 ID: {item.id}</p>
+              <p>수량: {item.quantity}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
