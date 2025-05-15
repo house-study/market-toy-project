@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 
 import ProductInfo from './ProductInfo';
@@ -47,6 +48,11 @@ const ProductDetailInfo = ({ product }: { product: ProductCard }) => {
           구매하기
         </button>
       </section>
+      <div className="mb-6 flex justify-end">
+        <Link href="/cart" className="mt-4 hover:underline">
+          장바구니 페이지로 이동
+        </Link>
+      </div>
     </div>
   );
 };

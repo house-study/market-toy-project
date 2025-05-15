@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { getPlaiceholder } from 'plaiceholder';
@@ -18,19 +19,27 @@ const Home = ({ products }: HomeProps) => {
     );
   }
   return (
-    <div className="mx-auto grid max-w-fit grid-cols-2 items-center justify-center gap-3 p-1 md:grid-cols-3 lg:grid-cols-5">
-      {products.map(product => (
-        <ProductListCard
-          key={product.id}
-          id={product.id}
-          image={product.image}
-          blurDataURL={product.blurDataURL}
-          name={product.name}
-          description={product.description}
-          price={product.price}
-          link={product.link}
-        />
-      ))}
+    <div className="px-40 py-12">
+      <div className="mb-6 flex justify-end">
+        <Link href="/cart" className="hover:underline">
+          장바구니
+        </Link>
+      </div>
+
+      <div className="mx-auto grid max-w-fit grid-cols-2 items-center justify-center gap-3 p-1 md:grid-cols-3 lg:grid-cols-5">
+        {products.map(product => (
+          <ProductListCard
+            key={product.id}
+            id={product.id}
+            image={product.image}
+            blurDataURL={product.blurDataURL}
+            name={product.name}
+            description={product.description}
+            price={product.price}
+            link={product.link}
+          />
+        ))}
+      </div>
     </div>
   );
 };
